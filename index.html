@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		发的说法是否
+		
+		<div id="topBox">
+			
+		</div>
+		<div>
+			无师傅
+
+		</div>
+		<div>
+			无是的范德萨发
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	let d = null;
+	$.ajax({
+		type:"get",
+		url:"studentinfo.php",
+		async:true,
+		beforeSend:function(xhr){
+			console.log("-----beforeSend-----");
+			console.log("xhr.readyState="+xhr.readyState);
+		},
+		complete:function(xhr,ts){
+			console.log("-----complete-----");
+			console.log("xhr.readyState="+xhr.readyState);
+			console.log("xhr.status="+xhr.status);
+		},
+		error:function(xhr, ts, errObj){
+			console.log("-----error-----");
+			console.log("xhr.readyState="+xhr.readyState);
+			console.log("xhr.status="+xhr.status);
+			console.log("ts="+ts);
+		},
+		success:function(data, ts, jqXHR){
+			console.log("-----success-----");
+			//console.log("data="+data);
+			//console.log(data);
+			//console.log("ts="+ts);
+			console.log(typeof(data));
+			//d  = data;
+			console.log(data);
+		},
+		dataType:"json"
+	});
+	
+//	console.log("--------------------------");
+//	console.log(d);
+	
+});
+
+</script>
